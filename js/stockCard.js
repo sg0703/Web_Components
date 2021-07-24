@@ -34,7 +34,7 @@ class StockCard extends HTMLElement {
         this.shadowRoot.appendChild(template.content.cloneNode(true));
 
         // set title for card
-        this.shadowRoot.querySelector('#stock-symbol-text').innerText = this.symbol || this.getAttribute('symbol');
+        this.shadowRoot.querySelector('#stock-symbol-text').innerText = this.getAttribute('symbol');
 
         // set initial values for price, shares, value
         this.shadowRoot.querySelector('#stock-price').innerText = this.formatPrice(this.price);
@@ -45,12 +45,13 @@ class StockCard extends HTMLElement {
     }
 
     getValue() {
-        return this.formatPrice(this.shares * this.price);
+        let total = this.shares * this.price;
+        return this.formatPrice(total);
     }
 
     formatPrice(number) {
         number = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD', maximumFractionDigits: 2}).format(number);
-    
+
         return number;
     }
 }
