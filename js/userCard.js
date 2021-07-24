@@ -1,3 +1,9 @@
+/**
+ *  Followed along with: 
+ *  TraversyMedia 
+ *  https://www.youtube.com/watch?v=PCWaFLy3VUo 
+ */
+
 const template = document.createElement('template');
 template.innerHTML = `
     <style>
@@ -51,15 +57,6 @@ class UserCard extends HTMLElement {
 
         // select img and insert name
         this.shadowRoot.querySelector('img').src = this.getAttribute('avatar');
-
-
-        /** 
-        this.innerHTML = `
-            <h3>
-            ${this.getAttribute('name')}
-            </h3>
-        `;
-        **/
     }
 
     connectedCallback() {
