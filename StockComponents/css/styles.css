@@ -1,0 +1,10 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.header h3 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 22pt;
+}
