@@ -1,0 +1,26 @@
+.card-container {
+  width: 200px;
+  height: 250px;
+  margin: 10px;
+  border: 1px solid black;
+}
+
+.stock-symbol {
+  text-align: center;
+  background-color: #6245c4;
+  padding: 5px;
+  color: white;
+}
+
+.stock-descr {
+  padding: 0px 5px 0px 5px;
+}
+
+.stock-value {
+  background-color: #1037a3;
+  text-align: center;
+}
+
+.stock-value-text {
+  text-align: center;
+}

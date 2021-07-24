@@ -2,9 +2,25 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(81, 29, 253, 1) 100%
+  );
+  margin: 0px;
+  border-radius: 15px;
 }
 
 .header h3 {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 22pt;
+  color: white;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
