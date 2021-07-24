@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Web Component Crash Course</title>
+
+  <!--  TraversyMedia FTW https://www.youtube.com/watch?v=PCWaFLy3VUo -->
+
+  <style>
+    h3 {
+      color: purple
+    }
+  </style>
+</head>
+
+<body>
+  <h3>Web Components and Flex Grid</h3>
+  <user-card name="Sam Gates" avatar="https://randomuser.me/api/portraits/men/1.jpg">
+    <div slot="email">sg1337@gmail.com</div>
+    <div slot="phone">919-999-9999</div>
+  </user-card>
+  <user-card name="John Smith" avatar="https://randomuser.me/api/portraits/women/1.jpg">
+    <div slot="email">jsmith123@gmail.com</div>
+    <div slot="phone">919-999-1000</div>
+  </user-card>
+  <script src="./js/userCard.js"></script>
+</body>
+
+</html>
