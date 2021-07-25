@@ -1,4 +1,4 @@
-# Web Components - Stock App
+# Web Components - Stock Market App
 
 ![License badge](https://img.shields.io/badge/license-MIT-green)
 
