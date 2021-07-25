@@ -1,3 +1,4 @@
+// using array to simulate database pull (may convert to axios req later)
 const stocks = [
     {
         company: 'VERU',
@@ -54,12 +55,12 @@ const docRoot = document.querySelector('.content');
 
 // iterate through stocks to generate cards for each stock, display on page 
 stocks.forEach(stock => {
+    const newCard = document.createElement('stock-card');
 
-    const newDiv = document.createElement('div');
-    newDiv.innerHTML = `
-    <stock-card symbol="${stock.symbol}" price="${stock.price}" shares="${stock.shares}">
-    </stock-card>`;
-
-    docRoot.append(newDiv);
+    newCard.setAttribute('symbol', stock.symbol);
+    newCard.setAttribute('shares', stock.shares);
+    newCard.setAttribute('price', stock.price);
+    
+    docRoot.append(newCard);
 
 })

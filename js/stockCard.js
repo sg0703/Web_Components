@@ -11,9 +11,9 @@ template.innerHTML = `
         </div>
         <div class="stock-data">
             <h4>Price</h4>
-            <p id="stock-price"></p>
+            <p id="stock-price-text"></p>
             <h4>Shares</h4>
-            <p id="stock-shares"></p>
+            <p id="stock-shares-text"></p>
         </div>
         <div class="stock-value">
             <h3 id="stock-value-text">Stock Value</h3>
@@ -37,9 +37,9 @@ class StockCard extends HTMLElement {
         this.shadowRoot.querySelector('#stock-symbol-text').innerText = this.getAttribute('symbol');
 
         // set initial values for price, shares, value
-        this.shadowRoot.querySelector('#stock-price').innerText = this.formatPrice(this.price);
+        this.shadowRoot.querySelector('#stock-price-text').innerText = this.formatPrice(this.price);
 
-        this.shadowRoot.querySelector('#stock-shares').innerText = this.shares;
+        this.shadowRoot.querySelector('#stock-shares-text').innerText = this.shares;
 
         this.shadowRoot.querySelector('#stock-value-text').innerText = this.getValue();
     }
@@ -53,6 +53,31 @@ class StockCard extends HTMLElement {
         number = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD', maximumFractionDigits: 2}).format(number);
 
         return number;
+    }
+
+    static get observedAttributes() {
+        return ["symbol", "price", "shares"];
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        // if values haven't changed, do nothing
+        if(oldValue === newValue) {
+            return;
+        }
+
+        // set object properties correctly 
+        this[name] = newValue;
+
+        // make sure price is formatted before rendering
+        if(name === 'price') {
+            this.shadowRoot.querySelector(`#stock-price-text`).innerText = this.formatPrice(newValue);
+        }
+        else {
+            this.shadowRoot.querySelector(`#stock-${name}-text`).innerText = newValue;
+        }
+        
+        // calculate value of holding and render to card
+        this.shadowRoot.querySelector('#stock-value-text').innerText = this.getValue();
     }
 }
 
