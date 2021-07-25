@@ -32,9 +32,6 @@ class StockCard extends HTMLElement {
     constructor() {
         super();
 
-        // display data by default
-        this.displayData = true;
-
         // set variables 
         this.shares = this.getAttribute('shares');
         this.price = this.getAttribute('price');
@@ -52,6 +49,11 @@ class StockCard extends HTMLElement {
         this.shadowRoot.querySelector('#stock-shares-text').innerText = this.shares;
 
         this.shadowRoot.querySelector('#stock-value-text').innerText = this.getValue();
+
+
+        // display data by default
+        this.displayData = true;
+
     }
 
     getValue() {
@@ -110,16 +112,16 @@ class StockCard extends HTMLElement {
 
     // toggle display
     toggleDataDisplay() {
+        this.displayData = !this.displayData;
+
         let stockData = this.shadowRoot.querySelector('.stock-data');
 
-        if(this.showData) {
+        if(this.displayData) {
             stockData.style.display = 'block';
         }
         else {
             stockData.style.display = 'none';
         }
-
-        this.showData = !this.showData;
     }
 
     deleteCard() {
