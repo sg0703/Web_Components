@@ -62,5 +62,4 @@ stocks.forEach(stock => {
     newCard.setAttribute('price', stock.price);
     
     docRoot.append(newCard);
-
 })

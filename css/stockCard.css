@@ -9,6 +9,8 @@
   background-color: #562692;
   padding: 5px;
   color: white;
+
+  cursor: pointer;
 }
 
 .stock-data {

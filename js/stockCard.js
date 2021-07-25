@@ -1,4 +1,4 @@
-// stockList web component - displays stock data in a card, renders button to remove from dom
+// stockList web component - displays stock data in a card, renders button to remove from dom - css in external file 
 
 const template = document.createElement('template');
 
@@ -25,6 +25,9 @@ class StockCard extends HTMLElement {
     constructor() {
         super();
 
+        // display data by default
+        this.displayData = true;
+
         // set variables 
         this.shares = this.getAttribute('shares');
         this.price = this.getAttribute('price');
@@ -50,15 +53,19 @@ class StockCard extends HTMLElement {
     }
 
     formatPrice(number) {
-        number = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD', maximumFractionDigits: 2}).format(number);
+        const formattedNum = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD', maximumFractionDigits: 2}).format(number);
 
-        return number;
+        return formattedNum;
     }
 
+    // watch for changes to attributes below
     static get observedAttributes() {
         return ["symbol", "price", "shares"];
     }
 
+    // when they change, update values so it re-renders properly
+    // this was necessary to allow document.createElement and 
+    // setAttribute to work properly without returning null values  
     attributeChangedCallback(name, oldValue, newValue) {
         // if values haven't changed, do nothing
         if(oldValue === newValue) {
@@ -78,6 +85,30 @@ class StockCard extends HTMLElement {
         
         // calculate value of holding and render to card
         this.shadowRoot.querySelector('#stock-value-text').innerText = this.getValue();
+    }
+
+    // set up toggling display of content
+    connectedCallback() {
+        this.shadowRoot.querySelector('.stock-symbol').addEventListener('click', () => this.toggleDisplay());
+    }
+
+    // remove event listener
+    disconnectedCallback() {
+        this.shadowRoot.querySelector('.stock-symbol').removeEventListener();
+    }
+
+    // toggle display
+    toggleDisplay() {
+        let stockData = this.shadowRoot.querySelector('.stock-data');
+
+        if(this.showData) {
+            stockData.style.display = 'block';
+        }
+        else {
+            stockData.style.display = 'none';
+        }
+
+        this.showData = !this.showData;
     }
 }
 
