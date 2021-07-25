@@ -1,4 +1,6 @@
-// stockList web component - displays stock data in a card, renders button to remove from dom - css in external file 
+/**
+ * StockCard web component: renders stock info and calculates value of holding
+ */
 
 const template = document.createElement('template');
 
@@ -50,10 +52,8 @@ class StockCard extends HTMLElement {
 
         this.shadowRoot.querySelector('#stock-value-text').innerText = this.getValue();
 
-
         // display data by default
         this.displayData = true;
-
     }
 
     getValue() {
