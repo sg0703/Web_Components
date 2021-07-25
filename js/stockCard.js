@@ -7,6 +7,10 @@ template.innerHTML = `
 
     <div class="card-container">
         <div class="stock-symbol">
+            <svg id="deleteCard" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
             <h2 id="stock-symbol-text">Card Title</h3>
         </div>
         <div class="stock-data">
@@ -16,6 +20,9 @@ template.innerHTML = `
             <p id="stock-shares-text"></p>
         </div>
         <div class="stock-value">
+            <svg id="toggleData" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-expand" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M3.646 10.146a.5.5 0 0 1 .708 0L8 13.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zm0-4.292a.5.5 0 0 0 .708 0L8 2.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708zM1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8z"/>
+            </svg>
             <h3 id="stock-value-text">Stock Value</h3>
         </div>
     </div>
@@ -89,16 +96,20 @@ class StockCard extends HTMLElement {
 
     // set up toggling display of content
     connectedCallback() {
-        this.shadowRoot.querySelector('.stock-symbol').addEventListener('click', () => this.toggleDisplay());
+        this.shadowRoot.querySelector('#toggleData').addEventListener('click', () => this.toggleDataDisplay());
+
+        this.shadowRoot.querySelector('#deleteCard').addEventListener('click', () => this.deleteCard());
     }
 
     // remove event listener
     disconnectedCallback() {
-        this.shadowRoot.querySelector('.stock-symbol').removeEventListener();
+        this.shadowRoot.querySelector('#toggleData').removeEventListener();
+
+        this.shadowRoot.querySelector('#deleteCard').removeEventListener();
     }
 
     // toggle display
-    toggleDisplay() {
+    toggleDataDisplay() {
         let stockData = this.shadowRoot.querySelector('.stock-data');
 
         if(this.showData) {
@@ -109,6 +120,12 @@ class StockCard extends HTMLElement {
         }
 
         this.showData = !this.showData;
+    }
+
+    deleteCard() {
+        let card = this.shadowRoot.querySelector('.card-container');
+
+        card.remove();
     }
 }
 

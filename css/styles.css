@@ -1,11 +1,12 @@
 body {
   margin: 0px;
+  background-color: rgb(249, 249, 250);
 }
 
 .header {
   text-align: center;
   padding: 5px;
-  background: rgb(131, 58, 180);
+  background: #2d4a1a;
   background: linear-gradient(
     90deg,
     rgba(131, 58, 180, 1) 0%,
