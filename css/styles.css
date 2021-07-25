@@ -58,3 +58,24 @@ input {
   padding: 2px;
   margin: 2px;
 }
+
+/* Adjusting form for small screens */
+@media only screen and (max-device-width: 480px) {
+  .addStock {
+    display: flex;
+    justify-content: center;
+  }
+
+  #newStockSymbol {
+    display: block;
+  }
+
+  #newStockShares {
+    display: block;
+  }
+
+  #newStockPrice {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
