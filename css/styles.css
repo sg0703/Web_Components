@@ -15,7 +15,7 @@ body {
   margin: 10px;
 }
 
-.header {
+body {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
@@ -34,4 +34,21 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.addStock {
+  text-align: center;
+}
+
+.addStock label {
+  font-size: 13pt;
+}
+
+.addStock button {
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 5px;
+  background-color: #513aff;
+  font-weight: bold;
+  color: white;
 }
