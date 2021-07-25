@@ -7,7 +7,7 @@ const addStockForm = document.getElementById('addStockForm');
 addStockForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // get values from form (doing this for readability)
+    // get inputs, including values, from DOM 
     let symbol = document.getElementById('newStockSymbol');
     let shares = document.getElementById('newStockShares');
     let price = document.getElementById('newStockPrice');
@@ -19,6 +19,7 @@ addStockForm.addEventListener('submit', (e) => {
     newCard.setAttribute('shares', shares.value);
     newCard.setAttribute('price', price.value);
     
+    // add card to dom 
     docRoot.append(newCard);
 
     // clear out form
