@@ -10,40 +10,15 @@ const stocks = [
         shares: 500
     },
     {
-        company: 'IQSTEL Inc.',
-        symbol: 'IQST',
-        shares: 100
-    },
-    {
         company: 'Royal Caribbean Group',
         symbol: 'RCL',
         shares: 50
-    },
-    {
-        company: 'SG Blocks, Inc.',
-        symbol: 'SGBX',
-        shares: 100
     },
     {
         company: 'Toughbuilt Industries, Inc.',
         symbol: 'TBLT',
         shares: 500
     },
-    {
-        company: 'AT&T',
-        symbol: 'T',
-        shares: 100
-    },
-    {
-        company: 'AMC',
-        symbol: 'AMC',
-        shares: 150
-    },
-    {
-        company: 'GE',
-        symbol: 'GE',
-        shares: 1000
-    }
 ];
 
 // set where i want all of the cards to go
