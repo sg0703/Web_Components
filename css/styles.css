@@ -3,6 +3,7 @@
 body {
   margin: 0px;
   background-color: rgb(249, 249, 250);
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .header {
@@ -16,10 +17,6 @@ body {
   );
   border-radius: 15px;
   margin: 10px;
-}
-
-body {
-  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .header h3 {
