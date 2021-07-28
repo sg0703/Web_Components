@@ -1,3 +1,7 @@
+/**
+ * warningMsg handles displaying a "no stocks found" error
+ */
+
 const warning = document.querySelector('.warning');
 
 function displayWarning() {
