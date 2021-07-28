@@ -56,6 +56,10 @@ body {
   color: white;
 }
 
+.warning {
+  text-align: center;
+}
+
 input {
   padding: 2px;
   margin: 2px;

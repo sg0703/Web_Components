@@ -7,6 +7,9 @@ const addStockForm = document.getElementById('addStockForm');
 addStockForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
+    // zero out warning 
+    clearWarning();
+
     // get inputs, including values, from DOM 
     let symbol = document.getElementById('newStockSymbol');
     let shares = document.getElementById('newStockShares');
@@ -19,6 +22,10 @@ addStockForm.addEventListener('submit', (e) => {
     
     // add card to dom 
     docRoot.append(newCard);
+
+    // add card to local storage
+    const store = new StoredCards();
+    store.addCard(symbol.value,shares.value);
 
     // clear out form
     symbol.value = '';

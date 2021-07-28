@@ -22,8 +22,6 @@ Clone the repo or just download the files, it's only HTML, CSS, and vanilla Java
 The app is deployed on [GitHub pages](https://sg0703.github.io/Web_Components/). If you download the code, a sample dataset is included. Just play around with it - add some stocks, click on the button to show or hide stock data, and click the delete button.
 
 ![Screenshot 1](readme/screen1.png)
-![Screenshot 2](readme/screen2.png)
-![Screenshot 3](readme/screen3.png)
 
 ## License
 

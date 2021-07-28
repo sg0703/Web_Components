@@ -125,9 +125,20 @@ class StockCard extends HTMLElement {
     }
 
     deleteCard() {
+        // delete card from dom
         let card = this.shadowRoot.querySelector('.card-container');
 
         card.remove();
+
+        // delete card from local storage
+        const store = new StoredCards();
+        store.deleteCard(this.symbol);
+
+        // display warning after last card deleted
+        // warning defined in stockList.js
+        if(store.numCards() === 0) {
+            displayWarning();
+        }
     }
 
     // get price
