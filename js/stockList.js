@@ -7,50 +7,42 @@ const stocks = [
     {
         company: 'VERU',
         symbol: 'VERU',
-        shares: 500,
-        price: 6.90
+        shares: 500
     },
     {
         company: 'IQSTEL Inc.',
         symbol: 'IQST',
-        shares: 100,
-        price: 0.52
+        shares: 100
     },
     {
         company: 'Royal Caribbean Group',
         symbol: 'RCL',
-        shares: 50,
-        price: 77.72
+        shares: 50
     },
     {
         company: 'SG Blocks, Inc.',
         symbol: 'SGBX',
-        shares: 100,
-        price: 4.43
+        shares: 100
     },
     {
         company: 'Toughbuilt Industries, Inc.',
         symbol: 'TBLT',
-        shares: 500,
-        price: 0.606
+        shares: 500
     },
     {
         company: 'AT&T',
         symbol: 'T',
-        shares: 100,
-        price: 28.15
+        shares: 100
     },
     {
         company: 'AMC',
         symbol: 'AMC',
-        shares: 150,
-        price: 36.99
+        shares: 150
     },
     {
         company: 'GE',
         symbol: 'GE',
-        shares: 1000,
-        price: 12.71
+        shares: 1000
     }
 ];
 

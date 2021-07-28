@@ -36,17 +36,17 @@ class StockCard extends HTMLElement {
 
         // set variables 
         this.shares = this.getAttribute('shares');
-        this.price = this.getAttribute('price');
+        this.symbol = this.getAttribute('symbol');
 
         // create shadow DOM
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
 
         // set title for card
-        this.shadowRoot.querySelector('#stock-symbol-text').innerText = this.getAttribute('symbol');
+        this.shadowRoot.querySelector('#stock-symbol-text').innerText = this.symbol;
 
         // set initial values for price, shares, value
-        this.shadowRoot.querySelector('#stock-price-text').innerText = this.formatPrice(this.price);
+        this.shadowRoot.querySelector('#stock-price-text').innerText = this.price;
 
         this.shadowRoot.querySelector('#stock-shares-text').innerText = this.shares;
 
@@ -75,7 +75,7 @@ class StockCard extends HTMLElement {
     // when they change, update values so it re-renders properly
     // this was necessary to allow document.createElement and 
     // setAttribute to work properly without returning null values  
-    attributeChangedCallback(name, oldValue, newValue) {
+    async attributeChangedCallback(name, oldValue, newValue) {
         // if values haven't changed, do nothing
         if(oldValue === newValue) {
             return;
@@ -83,15 +83,15 @@ class StockCard extends HTMLElement {
 
         // set object properties correctly 
         this[name] = newValue;
+        this.shadowRoot.querySelector(`#stock-${name}-text`).innerText = newValue;
 
-        // make sure price is formatted before rendering
-        if(name === 'price') {
-            this.shadowRoot.querySelector(`#stock-price-text`).innerText = this.formatPrice(newValue);
-        }
-        else {
-            this.shadowRoot.querySelector(`#stock-${name}-text`).innerText = newValue;
+        if(!this.price) {
+            this.price = await this.getPrice();
         }
         
+        // display price
+        this.shadowRoot.querySelector(`#stock-price-text`).innerText = `$${this.price}`;
+
         // calculate value of holding and render to card
         this.shadowRoot.querySelector('#stock-value-text').innerText = this.getValue();
     }
@@ -128,6 +128,18 @@ class StockCard extends HTMLElement {
         let card = this.shadowRoot.querySelector('.card-container');
 
         card.remove();
+    }
+
+    // get price
+    async getPrice() {
+        // FinnHub API key
+        const key = 'c162mdv48v6ootkka5hg';
+
+        const data = await fetch(`https://finnhub.io/api/v1/quote?symbol=${this.symbol}&token=${key}`);
+
+        const priceData = await data.json();
+
+        return priceData.c;
     }
 }
 
