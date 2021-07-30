@@ -2,19 +2,19 @@
  * StoredCards manages store of cards entered by user
  */
 
-// config
-const storeName = 'sgates_stock_app';
-
 // stocks stored in JSON array 
-class StoredCards {
+export default class StoredCards {
     constructor() {
+        // set storeName 
+        this.storeName = 'sgates_stock_app';
+
         // if no cards in storage, insert empty JSON object
-        if(!localStorage.getItem(storeName)) {
-            localStorage.setItem(storeName, JSON.stringify({}));
+        if(!localStorage.getItem(this.storeName)) {
+            localStorage.setItem(this.storeName, JSON.stringify({}));
         }
 
         // pull cards out of local storage
-        this.cards = JSON.parse(localStorage.getItem(storeName));
+        this.cards = JSON.parse(localStorage.getItem(this.storeName));
     }
 
     numCards() {
@@ -63,7 +63,7 @@ class StoredCards {
     }
 
     updateStore() {
-        localStorage.setItem(storeName, JSON.stringify(this.cards));
+        localStorage.setItem(this.storeName, JSON.stringify(this.cards));
         
         console.log('Store updated!');
     }

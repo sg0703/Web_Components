@@ -2,6 +2,9 @@
  * StockCard web component: renders stock info and calculates value of holding
  */
 
+import StoredCards from "../utils/storedCards.js";
+import { displayWarning } from "../utils/warningMsg.js";
+
 const template = document.createElement('template');
 
 template.innerHTML = `
@@ -30,7 +33,7 @@ template.innerHTML = `
     </div>
 `;
 
-class StockCard extends HTMLElement {
+export default class StockCard extends HTMLElement {
     constructor() {
         super();
 
@@ -153,5 +156,3 @@ class StockCard extends HTMLElement {
         return priceData.c;
     }
 }
-
-window.customElements.define('stock-card', StockCard);
