@@ -44,15 +44,6 @@ label {
   font-size: 13pt;
 }
 
-button {
-  border-radius: 5px;
-  padding: 5px;
-  margin-left: 5px;
-  background-color: #513aff;
-  font-weight: bold;
-  color: white;
-}
-
 .warning {
   text-align: center;
 }

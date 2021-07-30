@@ -8,7 +8,16 @@ import StoredCards from "../utils/storedCards.js";
 const template = document.createElement('template');
 
 template.innerHTML = `
-    <link rel="stylesheet" href="../../css/styles.css">
+    <style>
+        button {
+            border-radius: 5px;
+            padding: 5px;
+            margin-left: 5px;
+            background-color: #513aff;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
     <form action="#" id="addStockForm">
         <input type="text" name="stockName" placeholder="Symbol" id="newStockSymbol">
 
